@@ -11,19 +11,21 @@
 </head>
 <body>
     <header><h1>To Do List</h1></header>
-    <section>
+    <section class="CAT">
         <h2>Create A Task</h2>
         <input type="text" id="newTask" placeholder="New Task">
         <button type="button" id="addTask">Add Task</button>
     </section>
     <section>
-        <h2>To Do:</h2>
-            <table>
-                <thead>
+        <!-- <div id="todo">
+            <h2>To Do:</h2>
+        </div> -->
+            <table class="table">
+                <thead class="head">
                     <tr>
-                        <th>Task</th>
-                        <th>Completed?</th>
-                        <th>&nbsp;</th>
+                        <th>To Do:</th>
+                        <th>Complete</th>
+                        <th>Modify</th>
                     </tr>
                 </thead>
                 <tbody id="toDoList">

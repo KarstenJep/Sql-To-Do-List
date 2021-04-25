@@ -1,0 +1,60 @@
+header {
+    font-size: xx-large;
+    text-align: center;
+    background-color: green;
+    border: black 3px solid;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+.CAT {
+    font-size: large;
+    padding-left: 10px;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-align: center;
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+}
+
+.table {
+    font-size: larger;
+    font-family: sans-serif;
+    margin: auto;
+    
+}
+.head {
+    font-size: larger;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-decoration: underline;
+}
+
+.center {
+    text-align: center;
+}
+
+.newTask {
+    background-color: gray;
+}
+
+.completedTask {
+    background-color: green;
+}
+
+thead, tr, td {
+    border: black 1px solid;
+    border-radius: 5px;
+}
+
+.completed {
+    padding: .5rem;
+}
+
+.deleteTask {
+    padding: .5rem;
+}
+
+body {
+    margin: 0;
+}
