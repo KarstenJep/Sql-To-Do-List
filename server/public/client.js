@@ -35,7 +35,7 @@ function renderToDo(list) {
                 <td class="center">✓</td>
                 <td></td>
                 <td>
-                    <button class="deleteTask" data-id="${todo.id}">Delete Completed Task</button>
+                    <button class="deleteTask" data-id="${todo.id}"><b>Delete Completed Task</b></button>
                 </td>
             </tr>
             `)
@@ -46,8 +46,8 @@ function renderToDo(list) {
             <td>&nbsp;${todo.task}</td>
             <td class="center">${todo.completed}</td>
             <td>
-                <button class="completed" data-id="${todo.id}"> Complete </button>
-                <button class="deleteTask" data-id="${todo.id}"> Delete </button>
+                <button class="completed" data-id="${todo.id}"><b> Complete </b></button>
+                <button class="deleteTask" data-id="${todo.id}"><b> Delete </b></button>
             </td>
         </tr>
         `)}  

@@ -1,7 +1,7 @@
 header {
     font-size: xx-large;
     text-align: center;
-    background-color: green;
+    background-color: rgb(175, 233, 58);
     border: black 3px solid;
     font-weight: bold;
     font-family: sans-serif;
@@ -55,6 +55,11 @@ thead, tr, td {
     padding: .5rem;
 }
 
+#addTask {
+    padding: .5rem;
+}
+
 body {
     margin: 0;
+    background-color: rgb(44, 214, 214);
 }
