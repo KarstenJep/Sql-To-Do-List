@@ -49,5 +49,20 @@ router.put('/:id', (req, res) => {
         })
 });
 
+router.delete('/:id', (req, res) => {
+    const taskToDelete = req.params.id;
+    console.log('Delete request id', taskToDelete);
+
+    const queryText = `DELETE FROM "todo" WHERE id=$1;`;
+    pool.query(queryText, [taskToDelete])
+        .then(result => {
+            console.log('Task deleted', taskToDelete);
+            res.sendStatus(200);
+        })
+        .catch(err => {
+            console.log(`Error making DB query ${queryText}`, error);
+            res.sendStatus(500);
+        })
+});
 
 module.exports = router;

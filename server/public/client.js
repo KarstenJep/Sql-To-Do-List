@@ -5,7 +5,7 @@ function onReady() {
     getToDo();
     $('#addTask').on('click', handleAddTask);
     $('#toDoList').on('click', '.completed', handleComplete);
-    //$('#toDoList').on('click', '.deleteTask', handleRemove);
+    $('#toDoList').on('click', '.deleteTask', handleDelete);
 };
 
 function getToDo() {
@@ -35,7 +35,7 @@ function renderToDo(list) {
                 <td>${todo.completed}</td>
                 <td></td>
                 <td>
-                    <button class="deleteTask" data-id="${todo.id}">Delete Task</button>
+                    <button class="deleteTask" data-id="${todo.id}">Delete Completed Task</button>
                 </td>
             </tr>
         `) 
@@ -80,6 +80,7 @@ function addTask(taskToAdd) {
 };
 
 function handleComplete() {
+    console.log('Completing', this);
     completeTask($(this).data("id"), "false");
 }
 
@@ -97,5 +98,24 @@ function completeTask(id, completed) {
     })
     .catch(error => {
         alert('Error on completing task', error);
+    })
+}
+
+function handleDelete() {
+    console.log('Deleting', this);
+    deleteTask($(this).data("id"));
+}
+
+function deleteTask(id) {
+    $.ajax({
+        method: 'DELETE',
+        url: `/todo/${id}`,
+    })
+    .then(response => {
+        console.log('deleted task', id);
+        getToDo();
+    })
+    .catch(error => {
+        alert('error on deleteTask', error)
     })
 }
