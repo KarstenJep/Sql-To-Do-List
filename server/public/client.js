@@ -4,7 +4,8 @@ function onReady() {
     console.log('jQ on standby');
     getToDo();
     $('#addTask').on('click', handleAddTask);
-    // code for complete/delete
+    $('#toDoList').on('click', '.completed', handleComplete);
+    //$('#toDoList').on('click', '.deleteTask', handleRemove);
 };
 
 function getToDo() {
@@ -25,16 +26,30 @@ function renderToDo(list) {
     $('#toDoList').empty();
     for (let i=0; i<list.length; i++) {
         let todo = list[i];
+        console.log('in for loop', todo.completed);
+
+        if (todo.completed === true) {
+            $('#toDoList').append(`
+            <tr>
+                <td>${todo.task}</td>
+                <td>${todo.completed}</td>
+                <td></td>
+                <td>
+                    <button class="deleteTask" data-id="${todo.id}">Delete Task</button>
+                </td>
+            </tr>
+        `) 
+        } else {
         $('#toDoList').append(`
         <tr>
             <td>${todo.task}</td>
             <td>${todo.completed}</td>
             <td>
-                <button class="completed" data-id="${todo.id}">Completed</button>
-                <button class="removeTask" data-id="${todo.id}">Remove Task</button>
+                <button class="completed" data-id="${todo.id}">Task Complete</button>
+                <button class="deleteTask" data-id="${todo.id}">Delete Task</button>
             </td>
         </tr>
-        `)     
+        `)}  
     }
 };
 
@@ -47,6 +62,8 @@ function handleAddTask() {
 };
 
 function addTask(taskToAdd) {
+    console.log('addTask', taskToAdd);
+    
     $.ajax({
         type: 'POST',
         url: '/todo',
@@ -54,12 +71,31 @@ function addTask(taskToAdd) {
     })
     .then(function (response) {
         console.log('Response from server', response);
-        $('#newTask').val(''),
         getToDo();
+        $('#newTask').val('');
     })
     .catch(function (error) {
         console.log('error in POST', error);
     })
 };
 
+function handleComplete() {
+    completeTask($(this).data("id"), "false");
+}
 
+function completeTask(id, completed) {
+    $.ajax({
+        method: 'PUT',
+        url: `/todo/${id}`,
+        data: {
+            complete: completed
+        }
+    })
+    .then(function (response) {
+        console.log('response', response);
+        getToDo();
+    })
+    .catch(error => {
+        alert('Error on completing task', error);
+    })
+}

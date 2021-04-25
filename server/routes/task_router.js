@@ -17,14 +17,11 @@ router.get('/', (req, res) => {
 
 // POST new task 
 router.post('/', (req, res) => {
-    //let newTask = req.body;
+    let newTask = req.body;
     console.log('Adding task', req.body);
     let queryText = `INSERT INTO "todo" ("task")
-                    VALUES (1$);`;
-    const todo = {
-        task: req.body.task,
-    };
-
+                    VALUES ($1);`;
+ 
     pool.query(queryText, [newTask.task])
         .then(result => {
             res.sendStatus(201);
@@ -34,5 +31,23 @@ router.post('/', (req, res) => {
             res.sendStatus(500);
         })
 });
+
+router.put('/:id', (req, res) => {
+    console.log('In router.put', req.body);
+    let taskId = req.params.id;
+    let complete = req.body.complete;
+    let queryText = `UPDATE "todo" SET "completed"=true WHERE "id"=$1;`;
+
+    pool.query(queryText, [taskId])
+        .then(response => {
+            console.log('Task completed', response);
+            res.sendStatus(200);
+        })
+        .catch(error => {
+            console.log(`Error making DB query ${queryText}`, error);
+            res.sendStatus(500);
+        })
+});
+
 
 module.exports = router;
