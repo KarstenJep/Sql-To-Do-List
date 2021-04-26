@@ -1,9 +1,10 @@
 # Project Name
 
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
+Weekend SQL To Do List
 
 ## Description
 
-Your project description goes here. What problem did you solve? How did you solve it?
+Duration: 3 days.
 
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
+A to do list was needed. It needed the ability to add new tasks to the list, store them in a database, and show them on the DOM. A button to mark each task as completed was needed, as well as a button to delete each task. 
+
