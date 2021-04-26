@@ -1,6 +1,7 @@
+// requires
 const pg = require('pg');
 
-// Create connection to DB
+// Config (Create connection to DB)
 const pool = new pg.Pool({
     database: 'weekend-to-do-app',
     host: 'localhost',
@@ -8,8 +9,6 @@ const pool = new pg.Pool({
     max: 10,
     idleTimeoutMillis: 30000
 });
-
-//const pool = new pg.Pool(config);
 
 // handles connection event
 pool.on("connect", () => {
