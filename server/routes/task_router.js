@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool');
 
-// GET all tasks
+// GET /todo data from DB, send it to client
 router.get('/', (req, res) => {
     let queryText = 'SELECT * FROM "todo" ORDER BY "id";';
     pool.query(queryText)
@@ -15,7 +15,8 @@ router.get('/', (req, res) => {
         });
 });
 
-// POST new task 
+// POST new task to /todo in DB
+// request body must be a object with task
 router.post('/', (req, res) => {
     let newTask = req.body;
     console.log('Adding task', req.body);
@@ -32,6 +33,8 @@ router.post('/', (req, res) => {
         })
 });
 
+// PUT sends to DB and updates "completed" to 'true' for task 
+// request must include id param indicating which task
 router.put('/:id', (req, res) => {
     console.log('In router.put', req.body);
     let taskId = req.params.id;
@@ -49,6 +52,8 @@ router.put('/:id', (req, res) => {
         })
 });
 
+// DELETE sends task id to DB to be deleted from /todo
+// request must include id param indicating which task
 router.delete('/:id', (req, res) => {
     const taskToDelete = req.params.id;
     console.log('Delete request id', taskToDelete);
