@@ -59,7 +59,10 @@ header {
 thead, tr, td {
     border: black 1px solid;
     border-radius: 5px;
+    padding: 2px
 }
+
+
 
 /* 'Complete' button */
 .completed {
