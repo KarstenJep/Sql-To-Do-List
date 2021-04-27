@@ -1,65 +1,105 @@
 header {
     font-size: xx-large;
     text-align: center;
-    background-color: rgb(175, 233, 58);
-    border: black 3px solid;
     font-weight: bold;
     font-family: sans-serif;
+    color: white;
+    text-shadow: 5px 5px 4px black, 5px 5px 4px rgb(56, 158, 189);
+    padding-top: 1rem;
 }
 
+/* Create A Task section */
 .CAT {
     font-size: large;
     padding-left: 10px;
     font-weight: bold;
     font-family: sans-serif;
     text-align: center;
-    padding-top: 3rem;
     padding-bottom: 4rem;
+    color: white;
+    text-shadow: 5px 5px 4px black, 5px 5px 4px rgb(56, 158, 189);
+
 }
 
+/* ToDo List data */
 .table {
     font-size: larger;
     font-family: sans-serif;
     margin: auto;
     
 }
+
+/* Table head */
 .head {
     font-size: larger;
     font-weight: bold;
     font-family: sans-serif;
     text-decoration: underline;
+    text-shadow: 1px 1px 2px white, 2px 2px 2px rgb(56, 158, 189);
 }
 
+/* Center 'completed' column data in table */
 .center {
     text-align: center;
 }
 
+/* Task background */
 .newTask {
     background-color: gray;
 }
 
+/* Completed task background */
 .completedTask {
-    background-color: green;
+    font-size: larger;
+    font-family:Impact;
+    background-color: rgb(73, 168, 109);
 }
 
+/* Table borders */
 thead, tr, td {
     border: black 1px solid;
     border-radius: 5px;
+    padding: 2px
 }
 
+
+
+/* 'Complete' button */
 .completed {
     padding: .5rem;
+    background-color: rgb(73, 168, 109);
+    border-radius: 5px;
 }
 
+/* 'Delete' button */
 .deleteTask {
     padding: .5rem;
+    background-color: rgb(192, 72, 72);
+    border-radius: 5px;
 }
 
+/* 'Add to list' button */
 #addTask {
     padding: .5rem;
+    background-color: rgb(73, 168, 109);
+    box-shadow: 3px 3px 3px black;
+    border-radius: 5px;
+}
+
+/* When 'task' is completed */
+.compTask {
+    text-decoration: line-through;
+    text-transform: uppercase;
+}
+
+/* input box for adding task */
+#newTask {
+    box-shadow: 2px 2px 4px black;
+    border-radius: 5px;
 }
 
 body {
     margin: 0;
-    background-color: rgb(44, 214, 214);
+    background-image: url("https://images.unsplash.com/photo-1504630083234-14187a9df0f5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80");
+    background-size: cover;
 }
